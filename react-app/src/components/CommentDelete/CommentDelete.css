@@ -1,0 +1,16 @@
+button.delete-comment {
+  text-align: center;
+  width: auto;
+  height: 35px;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid white;
+}
+
+button.delete-comment:hover {
+  transition: all 0.4s ease 0s;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: 1px solid white;
+}

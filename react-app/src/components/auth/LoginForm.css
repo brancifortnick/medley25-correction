@@ -1,0 +1,104 @@
+body {
+  margin: 0px !important;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+input[type="password"],
+input[type="email"],
+input[type="username"] {
+  width: 300px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 5px;
+  text-indent: 5px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+}
+
+form input {
+  width: 300px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 5px;
+  text-indent: 5px;
+  font-size: 20px;
+}
+
+/* html {
+  background: url("../../assets/blue-instruments.jpg");
+} */
+/*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
+form input:focus {
+  outline: none;
+}
+
+.login-container {
+  /* display: grid; */
+  /* grid-template-rows: fit-content(100%); */
+  /* background: url(../../assets/blue-instruments.jpg); */
+  padding-top: -10px;
+  text-align: center;
+  padding-right: 20px;
+  /* background-size: cover; */
+  /* width: 100%;
+  height: 100%; */
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+form.login-container-form {
+  align-items: center;
+  margin-top: 175px;
+  /*  margin-left: 725px; */
+  width: 450px;
+  height: 300px;
+  padding: 0px 0 20px 0;
+  border-radius: 8px;
+  background-color: white;
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: center;
+  opacity: 0.83;
+}
+
+button.login {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: 600;
+  margin-left: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  margin-top: 5px;
+}
+
+button.login:hover {
+  transition: all 0.4s ease 0s;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.errors {
+  width: 300px;
+  color: red;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.errors li {
+  list-style-type: none;
+}
