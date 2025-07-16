@@ -6,7 +6,7 @@ import App from "./App";
 import configureStore from "./store";
 import { ModalProvider } from "./context/Modal";
 
-import { renderToString } from "react-dom/server";
+
 
 const store = configureStore();
 

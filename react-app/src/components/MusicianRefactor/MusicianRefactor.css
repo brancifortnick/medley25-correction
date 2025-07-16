@@ -20,13 +20,13 @@ img.background-image-musicians{
   flex-direction: column;
   /* justify-content: space-between; */
   align-items: center;
-  background-image: url(../../assets/space-wallpaper.jpg);
+color: #fffef6;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100%;
   width: auto;
-  z-index: -1;
+
 }
 
 div.biography-div {

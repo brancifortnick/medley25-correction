@@ -13,27 +13,9 @@
   background-color: rgb(39, 37, 37);
   opacity: 0.8;
 } */
-#welcome-text {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: baseline;
-  background-color: #fffef6;
-  /* border-radius: 6px; */
-  color: black;
-  padding: 45px;
-  margin: 0;
-  font-weight: 500;
-  text-align: start;
-}
-.landing-container {
-  display: flex;
-  overflow-x: hidden;
-  align-items: stretch;
-  flex-direction: row;
-  background-color: black;
-}
+.landing-container {}
+
+#welcome-text {}
 /* img.background-image-landing {
   background-size: cover;
   background-attachment: fixed;

@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../../assets/james-owen.jpg";
+
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -10,12 +10,7 @@ const LandingPage = () => {
         Navigate to your profile page to upload your favorite musicians mp3 and other audio files you would like to showcase.
         Easily access all of your musicians by navigating to your profile page and choosing your desired artist.
       </h1>
-      <img
-      style={{minWidth: 400, maxWidth:725}}
-        alt="_blank"
-        className="background-image-landing"
-        src={background}
-      ></img>
+
     </div>
   );
 };
