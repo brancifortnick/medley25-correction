@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { getAllMusicians, postNewMusician } from "../../store/musician";
+import { getAllMusicians, addingFullMusician } from "../../store/musician";
 import "./MusicianFormThree.css";
 
 const MusicianFormThree = () => {
@@ -16,24 +16,55 @@ const MusicianFormThree = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("profile_img", profile_img);
-    //fetching from backend route
-    const res = await fetch("/api/musicians/new-picture", {
-      method: "POST",
-      body: formData,
-    });
-    if (res.ok) {
-      let profile_img = await res.json();
-      dispatch(postNewMusician(profile_img, biography, user.id, musician_name));
-      dispatch(getAllMusicians());
-    }
-    history.push(`/users/${user.id}`);
-  };
 
+    // Validate required fields
+    if (!profile_img || !biography || !musician_name) {
+      alert("Please fill in all fields and select an image");
+      return;
+    }
+
+    try {
+      const result = await dispatch(
+        addingFullMusician(profile_img, biography, user.id, musician_name)
+      );
+
+      if (result && result.error) {
+        console.error("Error creating musician:", result.error);
+        alert("Error creating musician: " + result.error);
+        return;
+      }
+
+    // Refresh the musicians list
+      dispatch(getAllMusicians());
+
+      // Navigate to user profile
+      history.push(`/users/${user.id}`);
+    } catch (error) {
+      console.error("Unexpected error:", error);
+      alert("An unexpected error occurred");
+    }
+  };
   const updateProfileImg = (e) => {
     const file = e.target.files[0];
-    setProfileImg(file);
+    if (file) {
+      // Validate file type
+      const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+      if (!allowedTypes.includes(file.type)) {
+        alert('Please select a valid image file (JPEG, JPG, or PNG)');
+        e.target.value = '';
+        return;
+      }
+
+      // Validate file size (5MB limit)
+      const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+      if (file.size > maxSize) {
+        alert('File size must be less than 5MB');
+        e.target.value = '';
+        return;
+      }
+
+      setProfileImg(file);
+    }
   };
 
   return (

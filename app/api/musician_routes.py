@@ -33,33 +33,67 @@ def musicians_songs(id):
 @musician_routes.route('/new-picture', methods=['POST'])
 @login_required
 def upload_picture():
+    try:
+        # Check if file is in request
+        if 'profile_img' not in request.files:
+            return {"errors": "No file provided"}, 400
 
-    profile_img = request.files['profile_img']
+        profile_img = request.files['profile_img']
 
-    profile_img.filename = get_unique_filename(profile_img.filename)
+        # Check if file was actually selected
+        if profile_img.filename == '':
+            return {"errors": "No file selected"}, 400
 
-    upload = upload_file_to_s3(profile_img)
+        # Check if file type is allowed
+        if not allowed_file(profile_img.filename):
+            return {"errors": "File type not allowed"}, 400
 
-    if 'url' not in upload:
-        return upload, 400
+        profile_img.filename = get_unique_filename(profile_img.filename)
 
-    url = upload['url']
+        upload = upload_file_to_s3(profile_img)
 
-    return {'url': url}
+        if "url" not in upload:
+            return upload, 400
+
+        url = upload['url']
+
+        return {'url': url}
+
+    except Exception as e:
+        print(f"Error in upload_picture: {str(e)}")
+        return {"errors": f"Upload failed: {str(e)}"}, 500
 
 
 @musician_routes.route('/new', methods=['POST'])
 @login_required
 def create_musician():
+    try:
+        # Check required fields
+        if not request.form.get('musician_name'):
+            return {"errors": "Musician name is required"}, 400
+        if not request.form.get('biography'):
+            return {"errors": "Biography is required"}, 400
+        if not request.form.get('profile_img'):
+            return {"errors": "Profile image URL is required"}, 400
 
-    form = MusicianForm()
+        new_musician = Musician(
+            musician_name=request.form['musician_name'],
+            biography=request.form['biography'],
+            profile_img=request.form['profile_img'],
+            user_id=current_user.id
+        )
 
-    new_musician = Musician()
+        print('=================Creating musician:',
+              new_musician.to_dict(), '===================')
 
-    form.populate_obj(new_musician)
-    db.session.add(new_musician)
-    db.session.commit()
-    return new_musician.to_dict()
+        db.session.add(new_musician)
+        db.session.commit()
+        return new_musician.to_dict()
+
+    except Exception as e:
+        print(f"Error creating musician: {str(e)}")
+        db.session.rollback()
+        return {"errors": f"Failed to create musician: {str(e)}"}, 500
 
 
 @musician_routes.route('/<int:id>', methods=['DELETE'])

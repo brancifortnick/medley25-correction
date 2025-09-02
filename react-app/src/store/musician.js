@@ -3,7 +3,6 @@ const GET_ONE = "musician/GET_ONE";
 const ADD_MUSICIAN = "musician/ADD_MUSICIAN";
 const DELETE_MUSICIAN = "musician/DELETE_MUSICIAN";
 const UPDATE_BIOGRAPHY = "musician/UPDATE_BIOGRAPHY";
-// const ADD_IMAGE = "musician/ADD_IMAGE"; -- put route for image updating
 
 const getAllArtists = (musicians) => ({
   type: GET_MUSICIANS,
@@ -30,45 +29,76 @@ const updateBio = (musician) => ({
   payload: musician,
 });
 
-// const addImage = (musician) => ({
-//   type: ADD_IMAGE,
-//   payload: musician,
-// });
-//---put route
-
-export const getAllMusicians = (id) => async (dispatch) => {
+export const getAllMusicians = () => async (dispatch) => {
   const res = await fetch(`/api/musicians/`);
   if (res.ok) {
     const data = await res.json();
     dispatch(getAllArtists(data.musicians));
-    // return data;
+    return data;
   }
 };
 
-export const postNewMusician =
-  (profile_img, biography, user_id, musician_name) => async (dispatch) => {
-    profile_img = profile_img.url;
-    const res = await fetch("/api/musicians/new", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ profile_img, biography, user_id, musician_name }),
-    });
-    if (res.ok) {
-      const musician = await res.json();
-      dispatch(addMusician(musician));
-    } else {
-      console.log("Musician Not Added - Error");
+export const addingFullMusician = (profile_img, biography, userId, musician_name) => {
+  return async (dispatch) => {
+    try {
+      // Validate inputs
+      if (!profile_img || !biography || !userId || !musician_name) {
+        console.error("Missing required parameters");
+        return { error: "Missing required parameters" };
+      }
+
+      // Step 1: Upload image
+      const formData = new FormData();
+      formData.append("profile_img", profile_img);
+
+      const imageRes = await fetch("/api/musicians/new-picture", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!imageRes.ok) {
+        const errorData = await imageRes.json().catch(() => ({}));
+        console.error("Image upload failed:", imageRes.status, errorData);
+        return { error: `Image upload failed: ${imageRes.status}` };
+      }
+
+      const imageData = await imageRes.json();
+      const profileImgUrl = imageData.url;
+
+      // Step 2: Create musician with uploaded image URL
+      const musicianData = new FormData();
+      musicianData.append("profile_img", profileImgUrl);
+      musicianData.append("biography", biography);
+      musicianData.append("user_id", userId);
+      musicianData.append("musician_name", musician_name);
+
+      const musicianRes = await fetch("/api/musicians/new", {
+        method: "POST",
+        body: musicianData,
+      });
+
+      if (musicianRes.ok) {
+        const newMusician = await musicianRes.json();
+        dispatch(addMusician(newMusician));
+        return newMusician;
+      } else {
+        const errorData = await musicianRes.json().catch(() => ({}));
+        console.error("Musician creation failed:", musicianRes.status, errorData);
+        return { error: `Musician creation failed: ${musicianRes.status}` };
+      }
+    } catch (error) {
+      console.error("Error creating musician:", error);
+      return { error: error.message };
     }
   };
+};
 
 export const getOneMusician = (id) => async (dispatch) => {
   const res = await fetch(`/api/musicians/${id}`);
   if (res.ok) {
     const data = await res.json();
     dispatch(getOne(data));
-  } //
+  }
 };
 
 export const deleteOneMusician = (id) => async (dispatch) => {
@@ -93,24 +123,6 @@ export const updateBiography = (formData, musicianId) => async (dispatch) => {
   }
 };
 
-// export const uploadImageToS = (profile_img, musicianId) => async (dispatch) => {
-//   // profile_img = profile_img.url
-//   const response = await fetch(`/api/musicians/${musicianId}/image`, {
-//     method: "PUT",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ profile_img, musicianId }),
-//   });
-//   if (response.ok) {
-//     const picture = await response.json();
-//     dispatch(addImage(picture));
-//   } else {
-//     console.log("Image can't be added");
-//   }
-// };
-//---put route semi functioning
-
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
@@ -125,7 +137,6 @@ export default function reducer(state = initialState, action) {
       const addState = { ...state };
       addState[action.payload.id] = action.payload;
       return addState;
-    // return { ...action.payload };
     case GET_ONE:
       return { ...action.payload };
     case DELETE_MUSICIAN:
@@ -138,3 +149,4 @@ export default function reducer(state = initialState, action) {
       return state;
   }
 }
+

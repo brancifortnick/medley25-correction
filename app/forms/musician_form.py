@@ -16,5 +16,5 @@ class MusicianForm(FlaskForm):
     user_id = IntegerField('user_id', validators=[DataRequired()])
     musician_name = StringField('musician_name', validators=[
                                 DataRequired(), name_exists])
-    profile_img = StringField('profile_img')
+    profile_img = StringField('profile_img', validators=[DataRequired()])
     biography = StringField('biography')

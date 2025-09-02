@@ -12,6 +12,7 @@ import MusicianRefactor from "./components/MusicianRefactor/MusicianRefactor";
 import MusiciansListRefactor from "./components/MusiciansListRefactor/MusiciansListRefactor";
 import MusicianFormThree from "./components/MusicianFormThree/MusicianFormThree";
 import LandingPage from "./components/LandingPage/LandingPage";
+import MusicianFormRefactor from "./components/AA-NotUsingFolder/MusicianFormRefactor";
 // import CommentCreate from "./components/CommentCreate/CommentCreate";
 
 function App() {
