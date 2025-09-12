@@ -15,7 +15,13 @@
 } */
 .landing-container {}
 
-#welcome-text {}
+h1#welcome-text {
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+
+
+}
 /* img.background-image-landing {
   background-size: cover;
   background-attachment: fixed;

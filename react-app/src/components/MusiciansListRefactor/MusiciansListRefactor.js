@@ -12,21 +12,19 @@ function MusiciansListRefactor() {
     dispatch(getAllMusicians());
   }, [dispatch]);
 
-  const musiciansList = musicians.map((musician, idx) => {
+  const musiciansList = musicians.map((musician) => {
     return (
-      <div className="musicians-container">
-        <div key={idx}>
-          <div className="musician-div-container">
-            <NavLink to={`/musicians/${musician.id}`}>
-              <img
-                style={{ width: "300px", height: "200px" }}
-                src={musician.profile_img}
-                alt="profile_img"
-                className="card"
-              ></img>
-              <div className="musician-name">{musician.musician_name}</div>
-            </NavLink>
-          </div>
+      <div key={musician.id} className="musicians-container">
+        <div className="musician-div-container">
+          <NavLink to={`/musicians/${musician.id}`}>
+            <img
+              style={{ width: "300px", height: "200px" }}
+              src={musician.profile_img}
+              alt={`${musician.musician_name} profile`}
+              className="card"
+            />
+            <div className="musician-name">{musician.musician_name}</div>
+          </NavLink>
         </div>
       </div>
     );

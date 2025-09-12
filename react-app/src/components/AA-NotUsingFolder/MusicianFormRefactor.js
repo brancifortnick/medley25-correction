@@ -76,7 +76,7 @@ const MusicianFormRefactor = () => {
             <h1 id="add-musician-text">Add A Musician</h1>
             <form className="musician-form" onSubmit={onSubmit}>
                 <div className="input_container">
-                    <label htmlFor="musician_name" style={{ color: "white" }}>
+                    <label htmlFor="musician_name" >
                         Musician Name
                     </label>
                     <input
@@ -87,11 +87,11 @@ const MusicianFormRefactor = () => {
                         value={musician_name}
                     />
                 </div>
-                <label htmlFor="add-profile-pic" style={{ color: "white" }}>
+                <label htmlFor="add-profile-pic" >
                     Add Profile Picture
                 </label>
                 <input
-                    style={{ color: "white", fontSize: "15px", fontWeight: "500" }}
+
                     type="file"
                     accept="image/*"
                     name="profile_img"

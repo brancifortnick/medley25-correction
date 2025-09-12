@@ -4,11 +4,25 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 20px;
-  padding: 20px;
+  height: 4rem;
+    margin: 0;
+    padding: 0 10px;
+    position: fixed;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
   background-color: #394F8A;
   backdrop-filter: blur(5px);
+  width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  /* Ensure landing page and other page content has proper spacing */
+  .landing-page,
+  .page-content {
+    padding-top: 1rem;
 }
 
 /* a.nav-link.active{} */
@@ -70,7 +84,7 @@ button#demo-button {
   width: auto;
   height: 30px;
   border-radius: 6px;
-  background-color: white;
+
   color: black;
   font-size: 16px;
   font-weight: 550;

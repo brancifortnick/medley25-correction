@@ -72,7 +72,7 @@ const MusicianFormThree = () => {
       <h1 id="add-musician-text">Add A Musician</h1>
       <form className="musician-form" onSubmit={onSubmit}>
         <div className="input_container">
-          <label htmlFor="musician_name" style={{ color: "white" }}>
+          <label htmlFor="musician_name" style={{}}>
             Musician Name
           </label>
           <input
@@ -83,26 +83,26 @@ const MusicianFormThree = () => {
             value={musician_name}
           />
         </div>
-        <label htmlFor="add-profile-pic" style={{ color: "white" }}>
+        <label htmlFor="add-profile-pic" style={{}}>
           Add Profile Picture
         </label>
         <input
-          style={{ color: "white", fontSize: "15px", fontWeight: "500" }}
+
           type="file"
           accept="image/*"
           name="profile_img"
           onChange={updateProfileImg}
         />
-        <label htmlFor="biography" style={{ color: "white" }}>
+        <label htmlFor="biography" >
           Biography
         </label>
-        <textarea
+        <input
           name="biography"
           type="text"
           placeholder="biography..."
           onChange={(e) => setBiography(e.target.value)}
           value={biography}
-        />
+        ></input>
         <button className="submit" type="submit" id="create_musician">
           Submit
         </button>

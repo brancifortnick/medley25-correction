@@ -63,7 +63,7 @@ const NavBar = () => {
               activeClassName="active"
               style={{
                 textDecoration: "none",
-                color: "black",
+
                 fontSize: "17px",
               }}
             >
