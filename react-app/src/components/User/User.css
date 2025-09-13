@@ -1,4 +1,3 @@
-
 .user-page-container {
   display: grid;
   grid-template-rows: fit-content(100%);
@@ -12,13 +11,31 @@
   font-size: 16pt;
   z-index: -1;
 }
+.user-page-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  position: relative;
+  text-align: center;
+  background: contain;
+
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: contain;
+  width: 100%;
+
+  z-index: -1;
+
+  flex-direction: column;
+}
 #usersMusicians-component {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background:repeat-x;
+  background: repeat-x;
   min-width: 100%;
 }
+
 /* #component {
   font-weight: 500;
 } */
@@ -34,9 +51,11 @@ button#add-musician-btn {
   border: none;
   background-color: white;
 }
+
 #add-musician-btn:hover {
   cursor: pointer;
 }
+
 #add-musicians-button {
   display: flex;
   flex-direction: row;
@@ -46,6 +65,15 @@ button#add-musician-btn {
   margin: 8px;
 }
 
+button#add-musicians-button:hover {
+  cursor: pointer;
+  color: black;
+  border-radius: 6px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
 
 /* #your-musicians-text{
@@ -54,4 +82,6 @@ button#add-musician-btn {
   justify-self: center;
   align-items: center;
   color: white;
-} */
+}
+
+*/

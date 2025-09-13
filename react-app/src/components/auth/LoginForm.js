@@ -34,7 +34,7 @@ const LoginForm = () => {
 
   return (
     <div className="login-container">
-      <form className="login-container-form" onSubmit={onLogin}>
+      <form className="sign-up" onSubmit={onLogin}>
         <div className="errors">
           {errors.map((error, ind) => (
             <li key={ind}>{error}</li>
