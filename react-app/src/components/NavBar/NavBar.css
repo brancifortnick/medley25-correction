@@ -96,10 +96,15 @@ a.active:hover {
 button#login_nav,
 button#sign_up {
   width: auto;
-  height: 30px;
+background-color: black;
+  height: 2.4rem;
+  font-size: 1.4em;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  font-weight: 550;
   border-radius: 6px;
-  font-size: 16px;
-  border: none;
 }
 button#login_nav:hover,
 button#sign_up:hover {
@@ -109,10 +114,9 @@ button#sign_up:hover {
 }
 button#demo-button {
   width: auto;
-  height: 30px;
-  border-radius: 6px;
+  height: 3rem;
 
-  color: black;
+  color: white;
   font-size: 16px;
   font-weight: 550;
   border: none;
