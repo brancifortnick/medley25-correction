@@ -1,40 +1,55 @@
 .sign-up-container {
-  /* display: grid;
-  grid-template-rows: fit-content(100%);
-  background: url(../../assets/blue-instruments.jpg); */
+  display: flex;
+    flex-direction: column;
+    background: black;
   padding-top: -10px;
   text-align: center;
+  padding-right: 20px;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    z-index: -1;
   /* background-size: cover; */
-  /* width: 100%;
-  height: 100%; */
-  background-repeat: repeat;
+  /* width: 100%;*/
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
   /* color: white; */
-  z-index: -1;
+  object-fit: cover;
 }
 
-form.sign-up{
+form.sign-up {
   /* display: flex;
   flex-direction: column; */
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-weight: 700;
+    font-size: 20px;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
   /* margin-left: 725px; */
   background-color: white;
   width: 450px;
   height: 550px;
   margin-top: 75px;
   border-radius: 10px;
-  background: white;
-  background-size: cover;
+  background: #ebf0fc;
+    background-size: contain;
   background-attachment: fixed;
+  background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.83;
+  opacity: 0.85;
 }
+
 /*!!  /* background: linear-gradient(to right, transparent, rgb(93, 89, 88)),url('../../assets/philly_skyline.jpg'); */
 
 form {
   display: inline-flex;
   flex-direction: column;
+opacity: 0.9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
   /* align-items: center; */
 }
 
@@ -42,14 +57,20 @@ form input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 300px;
-  height: 50px;
-  margin: 10px; */
+  justify-content: center;
+  
+    width: 300px;
+    height: 40px;
+    height: 3rem;
+    margin: 10px;
   border: none;
   border-radius: 5px;
   text-indent: 5px;
-  font-size: 20px;
+  font-size: 2rem;
+  
+    color: white;
 }
+
 form input:focus {
   outline: none;
 }
@@ -62,15 +83,15 @@ button.sign-up {
   margin-left: 20px;
   border-radius: 10px;
   border: none;
-  background-color:white;
-   /* #E5B9A8; */
+  background-color: white;
+    /* #E5B9A8; */
   color: black;
   margin-top: 5px;
 }
 
 button.sign-up:hover {
   transition: all 0.4s ease 0s;
-  background-color:black;
-  color:white;
+  background-color: black;
+    color: white;
   cursor: pointer;
 }

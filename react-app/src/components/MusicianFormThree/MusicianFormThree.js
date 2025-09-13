@@ -69,8 +69,9 @@ const MusicianFormThree = () => {
 
   return (
     <div className="outer_card">
-      <h1 id="add-musician-text">Add A Musician</h1>
-      <form className="musician-form" onSubmit={onSubmit}>
+      <div className="form-container">
+        <h1 id="add-musician-text">Add A Musician</h1>
+        <form className="musician-form" onSubmit={onSubmit}>
         <div className="input_container">
           <label htmlFor="musician_name" style={{}}>
             Musician Name
@@ -102,11 +103,12 @@ const MusicianFormThree = () => {
           placeholder="biography..."
           onChange={(e) => setBiography(e.target.value)}
           value={biography}
-        ></input>
+          />
         <button className="submit" type="submit" id="create_musician">
           Submit
         </button>
       </form>
+      </div>
     </div>
   );
 };

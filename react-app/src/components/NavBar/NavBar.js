@@ -28,7 +28,7 @@ const NavBar = () => {
               to="/"
               exact={true}
               activeClassName="active"
-              style={{ textDecoration: "none" }}
+
             >
               Home
             </NavLink>
@@ -43,11 +43,7 @@ const NavBar = () => {
               exact={true}
               className="nav-link"
               activeClassName="active"
-              style={{
-                textDecoration: "none",
-                color: "black",
-                fontSize: "17px",
-              }}
+
             >
               Login
             </NavLink>
@@ -61,11 +57,7 @@ const NavBar = () => {
               to="/sign-up"
               exact={true}
               activeClassName="active"
-              style={{
-                textDecoration: "none",
 
-                fontSize: "17px",
-              }}
             >
               Sign Up
             </NavLink>
@@ -73,7 +65,7 @@ const NavBar = () => {
         </div>
       ) : null}
       {!user ? (
-        <div>
+        <div className='nav_bar_buttons'>
           <button id="demo-button" onClick={demoFunction}>
             Demo
           </button>
@@ -87,27 +79,14 @@ const NavBar = () => {
               exact={true}
               className="nav-link"
               activeClassName="active"
-              style={{ textDecoration: "none" }}
+
             >
               {`${user.username}s Profile`}
             </NavLink>
           </button>
         </div>
       ) : null}
-      {/* {user ? (
-        <div id="users_info">
-          <div className="nav_bar_buttons">
-            <NavLink
-              to="/users"
-              exact={true}
-              activeClassName="active"
-              style={{ textDecoration: "none" }}
-            >
-              Users
-            </NavLink>
-          </div>
-        </div>
-      ) : null} */}
+
       {user ? (
         <div className="nav_bar_buttons">
           <button id="musicians-form">
@@ -115,7 +94,7 @@ const NavBar = () => {
               to={`/users/${user.id}/add-musician`}
               exact={true}
               activeClassName="active"
-              style={{ textDecoration: "none" }}
+
             >
               Upload Musician
             </NavLink>
@@ -130,7 +109,6 @@ const NavBar = () => {
                 to="/musicians"
                 exact={true}
                 activeClassName="active"
-                style={{ textDecoration: "none" }}
               >
                 Musicians
               </NavLink>

@@ -7,8 +7,8 @@
   display: grid;
   grid-template-rows: fit-content(100%);
   justify-items: center;
-  background: #fffef6;
-
+  background: #c8d4e7;
+    width: 100%;
   background-size: contain;
   background-attachment: fixed;
   height: 100%;

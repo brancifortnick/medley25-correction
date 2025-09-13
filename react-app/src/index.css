@@ -1,53 +1,10 @@
-/* /* li {
-  list-style-type: none;
-}
-ol {
-  padding: 6px;
-  margin: 0px;
-  display: inline-block;
-  color: white;
-} */
+
 p {
   color: black;
   text-decoration: none;
   font-family: 'Arial', sans-serif;
 }
-/* label {
-  font-size: 16px;
-  font-weight: 600;
-  color: black;
-  border-radius: 6px;
-  padding: 6px;
-  margin: 2px;
-}  */
-/* style={{display: "table-cell"}} */
-/*
-.card {
-  border-radius: 6px;
-  background-color: #f0efeb;
-  padding: 20 0;
 
-  border: 1px solid black;
-
-} */
-/*
-.card p {
-  padding-top: 20px;
-  padding-left: 20px;
-} */
-/*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
-
-/* textarea {
-  width: 50%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  resize: none;
-} */
 
 @media screen and (min-width: 480px) {
   article {
@@ -64,11 +21,7 @@ p {
     flex: 1;
   }
 }
-/*!! was inside mediaQ below
-  /* main {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    }*/
+
 @media screen and (min-width: 480px) {
   head {
     margin:2px;
@@ -77,18 +30,12 @@ p {
     overflow-y: auto; */
   }
 }
-/*!! this is added to foot section of page - dont forget to reference changes made in html file (public folder)
-  /*article {
-    margin-bottom: 0;
-  }
 
-  footer {
-    border-top: 1px solid #ccc;
-    margin-top: 2em;
-  } */
 
-html {
-  height: 100%;
+html,
+body {
+  height: 100vh;
+
 }
 
 body {
@@ -103,7 +50,8 @@ body {
 }
 
 div#root {
-  height: 100%; }
+  height: 100vh;
+  }
 /* background:#FFFEF6; */
 /* background-color: #f0efeb; */
 

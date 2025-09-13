@@ -4,15 +4,15 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 4rem;
+  height: 6rem;
     margin: 0;
     padding: 0 10px;
     position: fixed;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
-  background-color: #394F8A;
+  background-color: #c4b180;
   backdrop-filter: blur(5px);
   width: 100%;
-    top: 0;
+  top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -24,9 +24,24 @@
   .page-content {
     padding-top: 1rem;
 }
-
+.nav_bar_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+  margin-right: 10px;
+  background-color: rgba(194, 0, 0, 0);
+}
 /* a.nav-link.active{} */
-
+a.nav-link {
+  font-weight: 600;
+  color: #c4b180;
+  border: none;
+  
+  font-size: 16px;
+    text-decoration: none;
+  }
 
 button#home,
 button#user-page,
@@ -36,7 +51,7 @@ button#musicians-list {
   height: 30px;
   border-radius: 6px;
   border: none;
-  background-color: #394F8A;
+
   font-weight: 600;
 }
 button#home:hover,
@@ -45,27 +60,39 @@ button#musicians-list:hover,
 button#musicians-form:hover {
   transition: all 0.4s ease 0s;
   background-color:black;
-  color: white;
+
   cursor: pointer;
+}
+.nav-link,
+.nav_bar_buttons {
+  color: rgb(129, 42, 42);
+  background-color: rgba(194, 0, 0, 0);
 }
 a,
 a.active {
   font-weight: 600;
-  color: white;
+  color: #c4b180;
   border: none;
   font-size: 16px;
   text-decoration: none;
 }
-
+a.active {
+  font-weight: 700;
+  font-size: 18px;
+  background-color: rgba(194, 0, 0, 0);
+  border: none;
+}
 a:hover,
 a.active:hover {
   font-weight: 600;
   font-size: 16px;
-  color: white;
+
   border: none;
   text-decoration: none;
 }
-
+#demo-button {
+  background-color: rgba(255, 255, 255, 0);
+}
 button#login_nav,
 button#sign_up {
   width: auto;
@@ -104,7 +131,7 @@ button.log-out-button {
   width: 100px;
   height: 30px;
   border-radius: 6px;
-  background-color: white;
+  background-color: #c4b180;
   font-size: 15px;
   font-weight: 600;
   border: none;
