@@ -1,12 +1,14 @@
 .musicians-list-components {
   display: flex;
-flex-direction: row;
-justify-content: center;
+  flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .musicians-list-container {
-
+  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background: url(../../assets/amps-yellow.jpg);
   width: 100vw;
   background-size: contain;
@@ -34,7 +36,7 @@ justify-content: center;
   border-radius: 3px solid black;
   padding: 4px;
   height: 35px;
-  color: black;
+  color: #c4b180;
   font-size: 14pt;
   text-align: center;
   text-decoration: none;
@@ -42,7 +44,8 @@ justify-content: center;
 
 .musician-name:hover {
   transition: 0.4s ease-in;
-  color: #000000;
+  color: #facf92;
+  cursor: pointer;
 }
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
