@@ -76,8 +76,8 @@ button.login {
   text-align: center;
   align-items: center;
   height: 30px;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 700;
   border-radius: 6px;
   background-color: #c4b180;
   color: black;
@@ -86,14 +86,15 @@ button.login {
   border: none;
   cursor: pointer;
   align-self: center;
-
+  background-color: #383842;
+  color: white
 }
 
 button.login:hover {
   transition: all 0.4s ease 0s;
-  background-color: #383842;
-  color: white;
-  cursor: pointer;
+  background-color: white;
+  color: #383842;
+cursor: pointer;
 }
 
 .errors {

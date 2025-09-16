@@ -15,6 +15,7 @@
   font-size: 12pt;
   font-weight: 550;
 }
+
 #add-song-text:hover {
   transition: all 0.4s ease 0s;
   background-color: black;
@@ -22,16 +23,18 @@
   cursor: pointer;
   border: 1px solid white;
 }
+
 div.form-container {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    background-color: rgb(247, 247, 248);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background-color: rgb(247, 247, 248);
   padding: 20px;
-  /* opacity: 0.78; */
+
 }
+
 input[type="file"]::file-selector-button {
   margin-right: 20px;
   border: none;
@@ -43,20 +46,24 @@ input[type="file"]::file-selector-button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 button#create-song-btn {
   width: 75px;
   height: 30px;
   border-radius: 6px;
-  background-color: white; /*#a5a58d;*/
+  background-color: white;
+  /*#a5a58d;*/
   font-size: 16px;
   font-weight: 600;
   color: black;
   border: none;
   cursor: pointer;
 }
+
 button#create-song-btn:hover {
   transition: 0.4 ease in 0.2s;
   background-color: black;
   color: white;
 }
+
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/

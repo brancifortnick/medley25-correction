@@ -7,9 +7,9 @@
   margin: 0;
   padding: 0 10px;
   position: fixed;
-  background: transparent;
+  background: white;
 
-  backdrop-filter: blur(5px);
+
   width: 100%;
   top: 0;
   left: 0;
@@ -36,11 +36,11 @@
 
 /* a.nav-link.active{} */
 a.nav-link {
-  font-weight: 600;
-  color: #c4b180;
+  font-weight: 700;
+  color: #5a4718;
   border: none;
 
-  font-size: 16px;
+  font-size: 22px;
   text-decoration: none;
 
 }
@@ -54,8 +54,8 @@ button#musicians-list {
   border-radius: 6px;
   border: none;
   background-color: transparent;
-  color: #c4b180;
-  font-weight: 600;
+  color: #5a4718;
+  font-weight: 700;
 }
 
 button#home:hover,
@@ -79,15 +79,15 @@ button#musicians-form:hover {
 a,
 a.active {
   font-weight: 700;
-  color: #c4b180;
+  color: #5a4718;
   border: none;
-  font-size: 18px;
+  font-size: 22px;
   text-decoration: none;
 }
 
 a.active {
   font-weight: 700;
-  font-size: 18px;
+  font-size:22px;
   background-color: rgba(194, 0, 0, 0);
   border: none;
 }
@@ -95,7 +95,7 @@ a.active {
 a:hover,
 a.active:hover {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 22px;
 
   border: none;
   text-decoration: none;
@@ -105,9 +105,9 @@ button#login_nav,
 button#sign_up {
   width: auto;
   background-color: transparent;
-  color: #c4b180;
+  color: #5a4718;
   height: 2.4rem;
-  font-size: 1.4em;
+  font-size: 22px;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -125,7 +125,7 @@ button#sign_up:hover {
   cursor: pointer;
   width: auto;
   height: 2.4rem;
-  font-size: 1.4em;
+  font-size: 22px;
   padding: 1rem;
   font-weight: 550;
   border-radius: 6px;
@@ -135,9 +135,9 @@ button#demo-button {
   width: auto;
   border: none;
   background-color: transparent;
-  color: #c4b180;
+  color: #5a4718;
   height: 2.4rem;
-  font-size: 18px;
+  font-size: 22px;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -152,10 +152,10 @@ button#demo-button:hover {
   border: none;
 
   background-color: #383842;
-  color: #c4b180;
+  color: #5a4718;
   width: auto;
   height: 2.4rem;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   border-radius: 6px;
   padding: 1rem;
@@ -169,9 +169,9 @@ button.log-out-button {
   width: 100px;
   height: 30px;
   border-radius: 6px;
-  background-color: #c4b180;
-  font-size: 15px;
-  font-weight: 600;
+  background-color: #5a4718;
+  font-size: 22px;
+  font-weight: 700;
   border: none;
 }
 
