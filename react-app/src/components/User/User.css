@@ -15,7 +15,7 @@
   display: flex;
   flex-wrap: wrap;
   padding-top: 50px;
-  position: relative;
+
   text-align: center;
   background: contain;
 
@@ -29,11 +29,19 @@
   flex-direction: column;
 }
 #usersMusicians-component {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background: repeat-x;
-  min-width: 100%;
+    display: flex;
+      flex-wrap: wrap;
+      padding-top: 50px;
+      text-align: center;
+      background: contain;
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-size: contain;
+      width: 100%;
+      /* z-index: -1; */
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 }
 
 /* #component {

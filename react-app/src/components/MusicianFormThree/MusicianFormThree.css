@@ -1,103 +1,104 @@
 .outer_card {
   display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 6rem 1rem 2rem 1rem;
-    background: url(../../assets/blurrycars.jpg) center center / cover no-repeat fixed;
-    width: 100vw;
-    text-decoration: white;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
-    z-index: 1;
-    background-repeat: repeat;
-  }
-  
-                                .form-container {
-                                  width: min(800px, 90vw);
-                                  margin: 0 auto;
-                                  border-radius: 15px;
-                                  overflow: hidden;
-                                  box-shadow: 0 15px 50px rgba(201, 191, 191, 0.3);
-  }
-  
-                                #add-musician-text {
-                                  position: relative;
-                                  z-index: 100;
-                                  width: 100%;
-                                  background: #c4b180;
-                                  backdrop-filter: blur(10px);
-      
-          color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: 'Helvetica', sans-serif;
-            text-align: center;
-            padding: 2rem;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            letter-spacing: 1px;
-            border-radius: 15px 15px 0 0;
-  }
-  
-  
-                                form.musician-form {
-                                  display: flex;
-                                  flex-direction: column;
-                                  justify-content: center;
-                                  align-items: center;
-                                  background: rgba(255, 255, 255, 0.92);
-                                  backdrop-filter: blur(10px);
-                                  border: none;
-                                  border-top: 3px solid #92886d;
-                                  padding: 2rem;
-                                  width: 100%;
-                                  min-height: 600px;
-                                  margin: 0;
-                                  border-radius: 0 0 15px 15px;
-                                  color: #352413;
-                                  font-weight: 600;
-                                  font-size: 1.1rem;
-                                  padding: 2rem;
-                                  position: relative;
-                                }
-                                div.input_container {
-                                  margin: 1.5rem 0;
-                                  display: flex;
-      flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      width: 100%;
-      }
-      
-      div.input_container label {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #352413;
-        margin-bottom: 0.5rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-      }
-      
-      input[type='text'],
-      input[type='file'] {
-        width: min(400px, 80%);
-        padding: 0.8rem;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        font-size: 1rem;
-        background-color: white;
-        color: #352413;
-        transition: all 0.3s ease;
-      }
-      
-      input[type='text']:focus,
-      textarea:focus {
-        outline: none;
-        border-color: #c4b180;
-        box-shadow: 0 0 0 0px rgba(57, 79, 138, 0.2);
-      }
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 3em 2em;
+  background: url(../../assets/blurrycars.jpg) center center / cover no-repeat fixed;
+  width: 100vw;
+  text-decoration: white;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1;
+  background-repeat: repeat;
+}
+
+.form-container {
+  width: min(800px, 90vw);
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(201, 191, 191, 0.3);
+}
+
+#add-musician-text {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  background: #c4b180;
+  backdrop-filter: blur(10px);
+
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Helvetica', sans-serif;
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  border-radius: 15px 15px 0 0;
+}
+
+
+form.musician-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-top: 3px solid #92886d;
+  padding: 2rem;
+  width: 100%;
+  min-height: 600px;
+  margin: 0;
+  border-radius: 0 0 15px 15px;
+  color: #352413;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 2rem;
+  position: relative;
+}
+
+div.input_container {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+div.input_container label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #352413;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input[type='text'],
+input[type='file'] {
+  width: min(400px, 80%);
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  color: #352413;
+  transition: all 0.3s ease;
+}
+
+input[type='text']:focus,
+textarea:focus {
+  outline: none;
+  border-color: #c4b180;
+  box-shadow: 0 0 0 0px rgba(57, 79, 138, 0.2);
+}
 
 textarea {
   width: min(400px, 80%);
@@ -117,24 +118,24 @@ button#create_musician.submit {
   margin-top: 2rem;
   width: auto;
   min-width: 150px;
-    height: 45px;
-    padding: 0 2rem;
-    border-radius: 8px;
+  height: 45px;
+  padding: 0 2rem;
+  border-radius: 8px;
 
   color: #4e5666;
-    font-size: 1.1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   border: none;
   cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 button#create_musician.submit:hover {
   background: #c4b180;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(57, 79, 138, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(57, 79, 138, 0.4);
 }
 
 /* Responsive Design */
@@ -151,22 +152,22 @@ button#create_musician.submit:hover {
 
   form.musician-form {
     padding: 1.5rem;
-    
-    }
 
-                                                                input[type='text'],
-                                                                textarea,
-                                                                input[type='file'] {
-                                                                  width: 100%;
-                                                                  font-size: 1rem;
-                                                                }
+  }
 
-                                                                button#create_musician.submit {
-                                                                  width: 100%;
-                                                                  min-width: unset;
-                                                                  padding: 0.8rem;
-                                                                  font-size: 1rem;
-                                                                }
+  input[type='text'],
+  textarea,
+  input[type='file'] {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  button#create_musician.submit {
+    width: 100%;
+    min-width: unset;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -175,11 +176,11 @@ button#create_musician.submit:hover {
     padding: 1rem;
   }
 
-                                                                .outer_card {
-                                                                  padding: 5rem 0.5rem 1rem 0.5rem;
-                                                                }
+  .outer_card {
+    padding: 5rem 0.5rem 1rem 0.5rem;
+  }
 
-                                                                form.musician-form {
-                                                                  padding: 1rem;
-                                                                }
+  form.musician-form {
+    padding: 1rem;
+  }
 }

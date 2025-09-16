@@ -39,23 +39,7 @@ function User() {
 
   return (
     <div className="user-page-container">
-      <ol>
-        <strong> Username | </strong> {usersInformation.username}
-      </ol>
-      <ol>
-        <strong> Email | </strong> {usersInformation.email}
-      </ol>
-
-      <div id="add-musicians-button">
-        <button 
-          className="active" 
-          type="button" 
-          id="add-musician-btn"
-          onClick={handleAddMusician}
-          disabled={isCreatingMusician}
-        >
-          {isCreatingMusician ? "Creating..." : "Add New Musician"}
-        </button>
+ 
         
         <Link
           style={{ 
@@ -65,13 +49,13 @@ function User() {
             padding: "8px 16px",
             backgroundColor: "#c4b180",
             borderRadius: "6px",
-            display: "inline-block"
+         
           }}
           to={`/users/${userId}/add-musician`}
         >
-          Create Full Musician Profile
+          Add Musician Profile
         </Link>
-      </div>
+    
       {/* <div id="your-musicians-text">
         <strong> Your Musicians </strong>
       </div> */}
