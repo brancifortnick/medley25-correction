@@ -3,104 +3,115 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 4.2em;
-    margin: 0;
-    padding: 0 10px;
-    position: fixed;
-  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.383);
-  background-color: #c4b180;
+  height: 5rem;
+  margin: 0;
+  padding: 0 10px;
+  position: fixed;
+
+
   backdrop-filter: blur(5px);
   width: 100%;
   top: 0;
   left: 0;
-    right: 0;
-    z-index: 1000;
-    overflow: hidden;
-  }
-  
-  /* Ensure landing page and other page content has proper spacing */
-  .landing-page,
-  .page-content {
-    padding-top: 1rem;
+  right: 0;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+/* Ensure landing page and other page content has proper spacing */
+.landing-page,
+.page-content {
+  padding-top: 1rem;
 }
 
 .nav_bar_buttons {
   display: flex;
   flex-direction: row;
-
+  justify-content: space-around;
   align-items: center;
-
+  gap: 15px;
+  margin-right: 10px;
   background-color: rgba(194, 0, 0, 0);
 }
 
-/* Navigation Links - Consistent Styling */
+/* a.nav-link.active{} */
 a.nav-link {
   font-weight: 600;
-  color: white;
+  color: #c4b180;
   border: none;
+
   font-size: 16px;
   text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
+
 }
 
-/* Navigation Buttons - Consistent Styling */
 button#home,
 button#user-page,
 button#musicians-form,
 button#musicians-list {
   width: auto;
   height: 30px;
-  background-color: #c4b180;
   border-radius: 6px;
   border: none;
-  text-decoration: none;
+  background-color: transparent;
+  color: #c4b180;
   font-weight: 600;
-  font-size: 16px;
-  color: white;
-  padding: 0 12px;
-  transition: all 0.3s ease;
 }
 
-/* Unified Hover Effect for All Nav Elements */
-a.nav-link:hover,
 button#home:hover,
 button#user-page:hover,
 button#musicians-list:hover,
 button#musicians-form:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease 0s;
+  border: none;
+  background-color: transparent;
   color: white;
   cursor: pointer;
-  transform: translateY(-1px);
 }
 
-/* Active Link Styling */
+.nav-link,
+.nav_bar_buttons {
+  border: none;
+  color: rgb(129, 42, 42);
+  background-color: rgba(194, 0, 0, 0);
+}
+
+a,
 a.active {
   font-weight: 700;
-  font-size: 16px;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
+  color: #c4b180;
   border: none;
+  font-size: 18px;
   text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
 }
 
-#demo-button {
-  background-color: rgba(255, 255, 255, 0);
+a.active {
+  font-weight: 700;
+  font-size: 18px;
+  background-color: rgba(194, 0, 0, 0);
+  border: none;
+}
+
+a:hover,
+a.active:hover {
+  font-weight: 700;
+  font-size: 18px;
+
+  border: none;
+  text-decoration: none;
 }
 
 button#login_nav,
 button#sign_up {
   width: auto;
-  background-color: black;
+  background-color: transparent;
+  color: #c4b180;
   height: 2.4rem;
   font-size: 1.4em;
   padding: 1rem;
   display: flex;
   align-items: center;
-
+  border: none;
   font-weight: 550;
   border-radius: 6px;
 }
@@ -109,23 +120,45 @@ button#login_nav:hover,
 button#sign_up:hover {
   transition: all 0.4s ease 0s;
   border: none;
-
+  background-color: #383842;
+  color: white;
+  cursor: pointer;
+  width: auto;
+  height: 2.4rem;
+  font-size: 1.4em;
+  padding: 1rem;
+  font-weight: 550;
+  border-radius: 6px;
 }
 
 button#demo-button {
   width: auto;
-  height: 3rem;
-
-  color: white;
-  font-size: 16px;
-  font-weight: 550;
   border: none;
+  background-color: transparent;
+  color: #c4b180;
+  height: 2.4rem;
+  font-size: 18px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+
+  border-radius: 6px;
 }
 
 button#demo-button:hover {
   transition: all 0.4s ease 0s;
   cursor: pointer;
   border: none;
+
+  background-color: #383842;
+  color: #c4b180;
+  width: auto;
+  height: 2.4rem;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 1rem;
 }
 
 button#login_nav:focus {

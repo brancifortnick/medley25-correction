@@ -20,6 +20,8 @@ def get_musicians():
 @login_required
 def get_artist_id(id):
     musician = Musician.query.get(id)
+    if not musician:
+        return {"errors": "Musician not found"}, 404
     return musician.to_dict()
 
 

@@ -1,104 +1,115 @@
-body {
-  margin: 0px !important;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/music-notes.jpg.jpg);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
-form {
+form.login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: black;
+  width: 28.125rem;
+  height: 35rem;
+  border-radius: 10px;
+  background-color: #c4b180;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-input[type="password"],
-input[type="email"],
-input[type="username"] {
-  width: 300px;
-  height: 50px;
-  margin: 10px;
-  border-radius: 5px;
-  text-indent: 5px;
-  font-size: 20px;
-  background-color: black;
+form.login div {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin: 10px 0;
+}
+
+label {
   color: white;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  margin: 5px 0 10px 0;
+  text-align: center;
+  background: none;
 }
 
 form input {
-  background-color: black;
-  ;
   width: 300px;
-  height: 50px;
+  height: 2.5rem;
   margin: 10px;
+  border: none;
   border-radius: 5px;
-  text-indent: 5px;
-  font-size: 1.4em;
+  padding: 0 10px;
+  font-size: 16px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
 }
 
-/* html {
-  background: url("../../assets/blue-instruments.jpg");
-} */
-/*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
 form input:focus {
   outline: none;
 }
 
-.login-container {
-  background: black;
-  padding-top: -10px;
-  text-align: center;
-  padding-right: 20px;
-  height: 100vh;
-  width: 100vw;
-
-  z-index: -1;
-}
-
-form.login-container-form {
-  align-items: center;
-  margin-top: 200px;
-  /*  margin-left: 725px; */
-  width: 450px;
-  height: 300px;
-  padding: 0px 0 20px 0;
-  border-radius: 8px;
-  background-color: white;
-  background-size: contain;
-  background-attachment: fixed;
-  background-position: center;
-  background: #ffffff;
-  opacity: 0.83;
-}
-
 button.login {
+  justify-content: center;
   width: 100px;
-  height: 35px;
-  font-size: 15px;
-  font-weight: 600;
-  margin-left: 20px;
-  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 6px;
+  background-color: #c4b180;
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border: none;
-  background-color: black;
-  color: white;
-  margin-top: 5px;
+  cursor: pointer;
+  align-self: center;
+
 }
 
 button.login:hover {
-  transition: all 0.4s ease .1s;
-  background-color: rgb(255, 245, 245);
-    color: rgb(0, 0, 0);
+  transition: all 0.4s ease 0s;
+  background-color: #383842;
+  color: white;
   cursor: pointer;
 }
 
 .errors {
   width: 300px;
   color: red;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
-  margin-top: 15px;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
-  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.errors:empty {
+  display: none;
 }
 
 .errors li {

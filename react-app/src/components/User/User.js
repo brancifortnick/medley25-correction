@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { getOneUser } from "../../store/user";
+import { getOneUser, addMusicianProfile } from "../../store/user";
 import UsersMusicians from "../UsersMusicians/UsersMusicians";
 // import backdrop from "../../assets/blueandpink.jpg";
 import "./User.css";
@@ -9,13 +9,33 @@ import "./User.css";
 function User() {
   const dispatch = useDispatch();
   const { userId } = useParams();
-  // const musicians = useSelector(state => state.musician);
   const usersInformation = useSelector((state) => state.usersReducer);
+  const user = useSelector(state => state.session.user);
+  
+  const [isCreatingMusician, setIsCreatingMusician] = useState(false);
 
-  const user = useSelector(state => state.session.user)
   useEffect(() => {
     dispatch(getOneUser(Number(userId)));
   }, [dispatch, userId]);
+
+  const handleAddMusician = async () => {
+    setIsCreatingMusician(true);
+    try {
+      const result = await dispatch(addMusicianProfile(userId));
+      if (result.errors) {
+        alert(`Error: ${result.errors}`);
+      } else {
+        alert("Musician profile created successfully! You can now edit it.");
+        // Refresh the user data to show the new musician
+        dispatch(getOneUser(Number(userId)));
+      }
+    } catch (error) {
+      console.error("Error creating musician:", error);
+      alert("An error occurred while creating the musician profile.");
+    } finally {
+      setIsCreatingMusician(false);
+    }
+  };
 
   return (
     <div className="user-page-container">
@@ -27,14 +47,30 @@ function User() {
       </ol>
 
       <div id="add-musicians-button">
-        <button className="active" type="button" id="add-musician-btn">
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to={`/users/${userId}/add-musician`}
-          >
-            Add New Musician
-          </Link>
+        <button 
+          className="active" 
+          type="button" 
+          id="add-musician-btn"
+          onClick={handleAddMusician}
+          disabled={isCreatingMusician}
+        >
+          {isCreatingMusician ? "Creating..." : "Add New Musician"}
         </button>
+        
+        <Link
+          style={{ 
+            textDecoration: "none", 
+            color: "black", 
+            marginLeft: "10px",
+            padding: "8px 16px",
+            backgroundColor: "#c4b180",
+            borderRadius: "6px",
+            display: "inline-block"
+          }}
+          to={`/users/${userId}/add-musician`}
+        >
+          Create Full Musician Profile
+        </Link>
       </div>
       {/* <div id="your-musicians-text">
         <strong> Your Musicians </strong>
@@ -42,7 +78,7 @@ function User() {
 
       <div id="usersMusicians-component">
         <div id="component">
-          <UsersMusicians userId={user.id}/>
+          <UsersMusicians userId={Number(userId)}/>
         </div>
       </div>
     </div>
