@@ -40,28 +40,30 @@ function User() {
   return (
     <div className="user-page-container">
  
-        
-        <Link
-          style={{ 
-            textDecoration: "none", 
-            color: "black", 
-            marginLeft: "10px",
-            padding: "8px 16px",
-            backgroundColor: "#c4b180",
-            borderRadius: "6px",
-         
-          }}
-          to={`/users/${userId}/add-musician`}
-        >
-          Add Musician Profile
-        </Link>
+  
     
       {/* <div id="your-musicians-text">
         <strong> Your Musicians </strong>
       </div> */}
 
       <div id="usersMusicians-component">
+
+     
         <div id="component">
+          <Link
+            style={{
+              textDecoration: "none",
+              color: "black",
+              marginLeft: "10px",
+              padding: "8px 16px",
+              backgroundColor: "#c4b180",
+              borderRadius: "6px",
+
+            }}
+            to={`/users/${userId}/add-musician`}
+          >
+            Add Musician Profile
+          </Link>
           <UsersMusicians userId={Number(userId)}/>
         </div>
       </div>

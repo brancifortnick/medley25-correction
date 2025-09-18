@@ -4,13 +4,13 @@ button#biography-edit {
   width: auto;
   height: 35px;
   border-radius: 6px;
-  background-color: pink;
+  background-color: rgb(202, 174, 49);
   border: 1px solid white;
 }
 button#biography-edit:hover {
   transition: all 0.4s ease 0s;
   background-color: black;
-  color: pink;
+  color: rgb(255, 255, 255);
   cursor: pointer;
   border: 1px solid white;
 }
