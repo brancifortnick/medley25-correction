@@ -7,10 +7,12 @@
   background-color: white;
   border: none;
   margin: 8px;
+font-weight: 700;
 }
 #delete-musician-btn:hover {
   transition: all 0.4s ease 0s;
-  background-color:black;
+  background-color:#c3b17f;
+font-weight: 700;
   color: white;
   cursor: pointer;
   border: none;

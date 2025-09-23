@@ -5,7 +5,7 @@ div#biography {
   justify-content: center;
 }
 
-img.background-image-musicians{
+img.background-image-musicians {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -16,16 +16,19 @@ img.background-image-musicians{
 }
 
 .card-container {
-  display: flex;
+display : flex;
+  padding-top: 2em;
   flex-direction: column;
   /* justify-content: space-between; */
   align-items: center;
-color: #fffef6;
-  background-size: cover;
+min-height: 100vh;
+  filter: hue-rotate(40%);
+  background-image: url(/static/media/orangeandgreycityesk.f028da5b.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
+  /* background-repeat: repeat-x; */
   background-attachment: fixed;
-  min-height: 100%;
-  width: auto;
+ 
 
 }
 
@@ -45,6 +48,7 @@ div.biography-div {
   max-width: 500px;
   min-width: 500px;
 }
+
 .audio-div audio {
   display: flex;
   flex-direction: column;

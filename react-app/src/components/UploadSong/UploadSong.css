@@ -13,15 +13,15 @@
   border: 6px;
   border-radius: 6px;
   font-size: 12pt;
-  font-weight: 550;
+  font-weight: 700;
 }
 
 #add-song-text:hover {
   transition: all 0.4s ease 0s;
-  background-color: black;
+  background-color: #c4b180;
   color: white;
   cursor: pointer;
-  border: 1px solid white;
+  border: transparent;
 }
 
 div.form-container {
@@ -55,14 +55,14 @@ button#create-song-btn {
   /*#a5a58d;*/
   font-size: 16px;
   font-weight: 600;
-  color: black;
+  color: #c3b17f;
   border: none;
   cursor: pointer;
 }
 
 button#create-song-btn:hover {
   transition: 0.4 ease in 0.2s;
-  background-color: black;
+  background-color: #c3b17f;
   color: white;
 }
 

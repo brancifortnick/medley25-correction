@@ -5,6 +5,7 @@ button#delete-song-btn {
   border-radius: 6px;
   background-color: white;
   border: none;
+font-weight: 700;
 }
 button#delete-song-btn:hover {
   /* transition: all 0.4s ease 0s;
@@ -13,8 +14,10 @@ button#delete-song-btn:hover {
   color: #9cf6fb;
   border: 1px solid white; */
   transition: all 0.4s ease 0s;
-  background-color: black;
+  background-color:0.4s ease 0s;
+  background-color:#c3b17f;
   color: white;
+font-weight: 700;
   cursor: pointer;
   border: none;
 }

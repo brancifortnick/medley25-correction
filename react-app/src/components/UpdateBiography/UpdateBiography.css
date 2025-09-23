@@ -3,13 +3,13 @@ button#biography-edit {
   text-align: center;
   width: auto;
   height: 35px;
-  border-radius: 6px;
-  background-color: rgb(202, 174, 49);
+  border-radius: 10px;
+font-weight: 700;
   border: 1px solid white;
 }
 button#biography-edit:hover {
   transition: all 0.4s ease 0s;
-  background-color: black;
+  background-color:#c3b17f;
   color: rgb(255, 255, 255);
   cursor: pointer;
   border: 1px solid white;

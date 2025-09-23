@@ -96,7 +96,9 @@ a:hover,
 a.active:hover {
   font-weight: 700;
   font-size: 22px;
+color: #c3b17f;
 
+transition: all 0.4s ease-in 0s;
   border: none;
   text-decoration: none;
 }
@@ -118,10 +120,10 @@ button#sign_up {
 
 button#login_nav:hover,
 button#sign_up:hover {
-  transition: all 0.4s ease 0s;
+  transition: all .4s ease 0s;
   border: none;
-  background-color: #c3b17f;
-  color: white;
+
+
   cursor: pointer;
   width: auto;
   height: 2.4rem;
@@ -135,7 +137,7 @@ button#demo-button {
   width: auto;
   border: none;
   background-color: transparent;
-  color: #5a4718;
+
   height: 2.4rem;
   font-size: 22px;
   padding: 1rem;
@@ -152,7 +154,7 @@ button#demo-button:hover {
   border: none;
   background-color: #c3b17f;
 
-  color: #5a4718;
+
   width: auto;
   height: 2.4rem;
   font-size: 22px;
@@ -167,7 +169,7 @@ button#login_nav:focus {
 
 button.log-out-button {
   width: 100px;
- 
+ transition: all 0.4s ease 0s;
   border-radius: 6px;
   background-color: #a8a396;
   font-size: 22px;
@@ -180,10 +182,10 @@ padding: 11px;
 button.log-out-button:hover {
 padding:5.5px;
   transition: all 0.4s ease-in-out 0s;
-  transform: scale(1.23);
+  
   border: none;
   background-color: rgb(255, 255, 255);
-  color:#363632;
+  color:#c4b180;
 
   cursor: pointer;
 }
