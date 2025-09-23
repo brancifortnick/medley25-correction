@@ -83,6 +83,7 @@ a.active {
   border: none;
   font-size: 22px;
   text-decoration: none;
+
 }
 
 a.active {
@@ -95,10 +96,13 @@ a.active {
 a:hover,
 a.active:hover {
   font-weight: 700;
-  font-size: 22px;
-color: #c3b17f;
 
-transition: all 0.4s ease-in 0s;
+color: #c3b17f;
+border-radius: 10px;
+
+
+
+transition: all .4s;
   border: none;
   text-decoration: none;
 }

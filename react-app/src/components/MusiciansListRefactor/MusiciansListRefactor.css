@@ -6,7 +6,7 @@
 }
 
 .musicians-list-container {
-  display: flex;
+
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,11 @@
 filter: grayscale(25%);
 text-shadow: #c4b180;
 } 
-
+div.card-container{
+background: url(../../assets/amps-yellow.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+}
 .musician-div-container {
   flex-direction: column;
   justify-content: space-around;
