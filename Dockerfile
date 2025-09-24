@@ -1,4 +1,4 @@
-FROM node:16.13.0 as build-stage
+FROM node:16-alpine as build-stage
 
 
 WORKDIR /react-app
