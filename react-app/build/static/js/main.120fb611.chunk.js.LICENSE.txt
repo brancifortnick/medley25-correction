@@ -1,0 +1,1 @@
+//! I think the errror is comming from NavLink potentially ==== not showing musicians on users/id route ---- find why not!!!!!!!!!
