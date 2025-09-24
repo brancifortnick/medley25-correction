@@ -1,0 +1,13 @@
+setup:
+  addons:
+    - plan: 'heroku-postgresql:essential-0'
+      as: DATABASE
+  config:
+    S3_BUCKET: lavish-images
+    S3_KEY: AKIA4QD6RFSFI5HLJLT2
+    S3_SECRET: 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
+    S3_SECRET_KEY: lkasjdf09ajsdkfljalsiorj12n3490re9485309irefvn
+    SECRET_KEY: ea7c09dd1d61c6fab9d7653a98398361a51a71165df4350952abc1b5fc69cba7
+build:
+  languages:
+    - nodejs
