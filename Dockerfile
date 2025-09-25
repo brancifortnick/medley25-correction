@@ -1,4 +1,4 @@
-FROM node:16-alpine as build-stage
+FROM node:16 as build-stage
 
 
 WORKDIR /react-app
@@ -14,15 +14,10 @@ RUN npm run build
 
 
 # --- Stage 2: Run Flask App ---
-FROM python:3.9-slim
+
 
 # Install system dependencies (Debian uses apt)
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libffi-dev \
-    curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+FROM ubuntu:22.04
 
 # Flask environment setup
 ENV FLASK_APP=app
@@ -34,11 +29,11 @@ WORKDIR /var/www
 # Copy backend and frontend code
 COPY . .
 COPY --from=build-stage /react-app/build /var/www/app/static
-RUN apt-get update && apt-get install -y gcc libpq-dev && rm -rf /var/lib/apt/lists/*
+
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir psycopg2-binary
+RUN pip install -r dev-requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
