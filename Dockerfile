@@ -37,4 +37,4 @@ RUN pip install psycopg2-binary
 # Run with Gunicorn binding to all interfaces and port 8000
 ENV PORT=8000
 # Use shell form so $PORT is expanded at container start (Heroku sets PORT automatically)
-CMD gunicorn --bind 0.0.0.0:${PORT} app:app --workers 3
+CMD gunicorn app:app
