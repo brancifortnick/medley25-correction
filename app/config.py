@@ -8,6 +8,16 @@ class Config:
     # (only 'postgresql') but heroku's postgres add-on automatically sets the
     # url in the hidden config vars to start with postgres.
     # so the connection uri must be updated here
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL').replace('postgres://', 'postgresql://')
+    _database_url = os.environ.get('DATABASE_URL')
+    if _database_url:
+        # SQLAlchemy 1.4 prefers 'postgresql://' scheme
+        SQLALCHEMY_DATABASE_URI = _database_url.replace(
+            'postgres://', 'postgresql://')
+    else:
+        # Fallback to a local sqlite database for development/testing
+        # In production (FLASK_ENV=production) we expect DATABASE_URL to be set
+        if os.environ.get('FLASK_ENV') == 'production':
+            raise RuntimeError(
+                'DATABASE_URL environment variable is required in production')
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
     SQLALCHEMY_ECHO = True
