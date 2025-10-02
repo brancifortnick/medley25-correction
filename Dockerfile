@@ -36,7 +36,7 @@ COPY --from=build-stage /react-app/build/ ./app/static/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 # Use the binary psycopg2 wheel to avoid compiling from source in most cases
-RUN pip install psycopg2-binary
+RUN pip install psycopg2
 
 # Run with Gunicorn binding to all interfaces and port 8000
 ENV PORT=8000
