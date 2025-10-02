@@ -3,6 +3,10 @@ import os
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    if not SECRET_KEY and os.environ.get('FLASK_ENV') != 'production':
+        SECRET_KEY = 'dev-secret-change-me'
+    if not SECRET_KEY and os.environ.get('FLASK_ENV') == 'production':
+        raise RuntimeError('SECRET_KEY is required in production')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # SQLAlchemy 1.4 no longer supports url strings that start with 'postgres'
     # (only 'postgresql') but heroku's postgres add-on automatically sets the

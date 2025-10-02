@@ -30,7 +30,7 @@ COPY . .
 
 # Ensure static folder exists and copy React build contents into Flask static
 RUN mkdir -p app/static
-COPY --from=build-stage /react-app/build/ app/static/
+COPY --from=build-stage /react-app/build/ ./app/static/
 
 # Install Python dependencies
 RUN pip install --upgrade pip
