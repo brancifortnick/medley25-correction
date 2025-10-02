@@ -20,23 +20,19 @@ EXPOSE 8000
 WORKDIR /var/www
 
 # Install OS packages required to build native extensions (and libpq for psycopg2)
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-	   build-essential \
-	   libpq-dev \
-	&& rm -rf /var/lib/apt/lists/*
+
 
 COPY . .
 
 # Ensure static folder exists and copy React build contents into Flask static
-RUN mkdir -p app/static
+RUN mkdir -p ./app/static
 COPY --from=build-stage /react-app/build/ ./app/static/
 
 # Install Python dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 # Use the binary psycopg2 wheel to avoid compiling from source in most cases
-RUN pip install psycopg2
+RUN pip install psycopg2-binary
 
 # Run with Gunicorn binding to all interfaces and port 8000
 ENV PORT=8000
