@@ -9,6 +9,7 @@ verify_ssl = true
 name = "pypi-304"
 
 [packages]
+psycopg2-binary = "==2.8.6"
 alembic = "==1.6.5"
 boto3 = "==1.17.104"
 botocore = "==1.20.104"
@@ -35,7 +36,6 @@ sqlalchemy = "==1.4.19"
 urllib3 = "==1.26.6"
 werkzeug = "==2.0.1"
 wtforms = "==2.3.3"
-psycopg2-binary = "==2.8.6"
 
 [dev-packages]
 alembic = "==1.6.5"
@@ -64,7 +64,7 @@ sqlalchemy = "==1.4.19"
 urllib3 = "==1.26.6"
 werkzeug = "==2.0.1"
 wtforms = "==2.3.3"
-psycopg2-binary = "==2.8.6"
+psycopg2-binary = "==2.9.10"
 
 [requires]
 python_version = "3.9"
