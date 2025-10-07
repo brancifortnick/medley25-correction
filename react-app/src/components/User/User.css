@@ -14,36 +14,46 @@
   max-width: 100vw;
   min-height: 100vh;
   font-size: 22px;
- 
+
   background-image: url(../../assets/piano_img.jpg);
   background-position: center;
   background-size: contain;
   color: rgb(0, 0, 0);
-background-color: #000000;
+  background-color: #000000;
   font-weight: 600;
   gap: 20px;
 
 }
-.user-page-container ol{
+
+.user-page-container a {
+  text-decoration: none;
+  color: black;
+  border-radius: 6px;
+  background-color: #eae8e1;
+  padding: .5rem;
+}
+
+.user-page-container ol {
   list-style-type: none;
   padding: .5rem;
   margin: 0;
-color:black;
-border-radius: 6px;
-background-color: #c3b17f;
+  color: black;
+  border-radius: 6px;
+  background-color: #ffffff;
 }
+
 #usersMusicians-component {
   display: flex;
 
   flex-direction: row;
   justify-content: space-around;
-  position: relative; 
+  position: relative;
   ;
   background: repeat-x;
 
   min-width: 45%;
   align-items: center;
-  background: #c3b17f;
+  background: #3b3523;
   border-radius: 12px;
   height: auto;
   max-height: 100%;
@@ -87,7 +97,7 @@ button#add-musician-btn {
   font-weight: 500;
 
 
-  background-color: #c3b17f;
+
   border-radius: 6px;
 }
 
