@@ -3,12 +3,13 @@ WORKDIR /react-app
 COPY react-app/package*.json ./
 # You have to set this because it should be set during build time.
 # Build our React App
-RUN npm install
 COPY react-app/ ./
+RUN npm install
+RUN npm run build
 ENV REACT_APP_BASE_URL=http://localhost:5000
 # Workaround for OpenSSL error with older react-scripts on Node 17+
 
-RUN npm run build
+
 FROM python:3.9
 
 # Setup Flask environment
