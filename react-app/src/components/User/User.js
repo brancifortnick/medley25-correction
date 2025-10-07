@@ -46,16 +46,7 @@ function User() {
         <strong> Email | </strong> {usersInformation.email}
       </ol>
 
-      <div id="add-musicians-button">
-        <button 
-          className="active" 
-          type="button" 
-          id="add-musician-btn"
-          onClick={handleAddMusician}
-          disabled={isCreatingMusician}
-        >
-          {isCreatingMusician ? "Creating..." : "Add New Musician"}
-        </button>
+
         
         <Link
           style={{ 
@@ -71,7 +62,7 @@ function User() {
         >
           Create Full Musician Profile
         </Link>
-      </div>
+  
       {/* <div id="your-musicians-text">
         <strong> Your Musicians </strong>
       </div> */}

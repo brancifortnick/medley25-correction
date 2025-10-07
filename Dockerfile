@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build-stage
+FROM node:24-alpine AS build-stage
 WORKDIR /react-app
 COPY react-app/package*.json ./
 # You have to set this because it should be set during build time.
@@ -13,7 +13,7 @@ FROM python:3.9
 
 # Setup Flask environment
 ENV FLASK_APP=app
-ENV FLASK_ENV=production
+# ENV FLASK_ENV=production
 
 EXPOSE 8000
 
