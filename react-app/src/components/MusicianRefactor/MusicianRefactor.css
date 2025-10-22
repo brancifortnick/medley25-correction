@@ -48,7 +48,7 @@ div.biography-div {
   min-width: 500px;
 }
 
-.   song-form {
+.song-form {
   display: flex;
   justify-content: space-around;
   align-items: center;
