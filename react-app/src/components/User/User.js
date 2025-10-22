@@ -51,12 +51,15 @@ function User() {
         <Link
           style={{ 
             textDecoration: "none", 
-            color: "black", 
+            color: "white", 
             marginLeft: "10px",
-            padding: "8px 16px",
-            backgroundColor: "#c4b180",
-            borderRadius: "6px",
-            display: "inline-block"
+            padding: "12px 24px",
+            background: "linear-gradient(135deg, #5a4718 0%, #6b5423 100%)",
+            borderRadius: "8px",
+            display: "inline-block",
+            fontWeight: "600",
+            boxShadow: "0 4px 12px rgba(90, 71, 24, 0.3)",
+            transition: "all 0.3s ease"
           }}
           to={`/users/${userId}/add-musician`}
         >

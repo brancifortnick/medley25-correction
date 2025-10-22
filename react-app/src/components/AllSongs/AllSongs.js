@@ -18,7 +18,7 @@ const AllSongs = ({ musicianId }) => {
   // const musicians = useSelector((state) => Object.values(state.musician));
   const musician = useSelector(state => state.musician);
   const song = useSelector(state => state.song)//obj with val of obj
-  console.log( user, "user>>>>",musician, "musicianS tate=>>>>>", song, "songSTATE-NO-OBJ", songs, "songs ----OBJECT")
+  // console.log( user, "user>>>>",musician, "musicianS tate=>>>>>", song, "songSTATE-NO-OBJ", songs, "songs ----OBJECT")
   // const comment = useSelector((state) => state.comment);
   // console.log(comment, "<<<<comment");
   // const musician = useSelector((state) =>state.musician);

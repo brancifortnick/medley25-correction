@@ -45,10 +45,10 @@ export const createNewSong =
     });
     if (res.ok) {
       const newSong = await res.json();
-      console.log(
-        newSong,
-        "newSong value from createNewSOng thunk in song.store"
-      );
+      // console.log(
+      //   newSong,
+      //   "newSong value from createNewSOng thunk in song.store"
+      // );
       dispatch(addOneSong(newSong));
       return newSong;
     } else {

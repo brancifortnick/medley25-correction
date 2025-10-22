@@ -1,11 +1,11 @@
-FROM node:16 AS build-stage
+FROM node:20 AS build-stage
 WORKDIR /react-app
 COPY react-app/ ./
 
 
 # You have to set this because it should be set during build time.
 # Build our React App
-ENV REACT_APP_BASE_URL=http://localhost:5000
+ENV REACT_APP_BASE_URL=https://medley-sesh-12ff9a74e2af.herokuapp.com/
 
 RUN npm install
 RUN npm run build

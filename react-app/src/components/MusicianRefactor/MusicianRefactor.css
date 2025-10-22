@@ -48,15 +48,7 @@ div.biography-div {
   min-width: 500px;
 }
 
-.audio-div audio {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10px;
-}
-
-.song-form {
+.   song-form {
   display: flex;
   justify-content: space-around;
   align-items: center;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { getAllMusicians } from "../../store/musician";
 
 // import DeleteMusician from "../DeleteMusician";
@@ -28,29 +28,42 @@ const UsersMusicians = ({ userId }) => {
 
   const usersMusicians = musicians.map((musician, idx) => {
     return targetUserId === Number(musician.user_id) ? (
-      <>
-        <ol key={idx} className="musician-ol">
-          {/* <div id="musician-name">{musician.musician_name}</div> */}
-          <NavLink
-            to={`/musicians/${musician.id}`}
-          >{`View ${musician.musician_name}`}</NavLink>
-          <div className="musician-div">
-            <img
-              src={musician.profile_img}
-              alt="_blank"
-              className="card"
-              style={{ height: "500px", width: "600px" }}
-            ></img>
-            <div id="add-musician-link"></div>
+      <div key={idx} className="musician-card">
+        <div className="musician-image-container">
+          <img
+            src={musician.profile_img}
+            alt={`${musician.musician_name} profile`}
+            className="musician-image"
+          />
+          <div className="musician-overlay">
+            <h3 className="musician-name">{musician.musician_name}</h3>
+            <NavLink
+              to={`/musicians/${musician.id}`}
+              className="view-musician-btn"
+            >
+              View Profile
+            </NavLink>
           </div>
-        </ol>
-      </>
+        </div>
+      </div>
     ) : null;
   });
 
   return (
-    <div className="musician-container">
-      <div id="users-musicians">{usersMusicians}</div>
+    <div className="musicians-page-container">
+      <div className="page-header">
+        <h2 className="page-title">Your Musicians</h2>
+        <p className="page-subtitle">Manage and view your musical profiles</p>
+      </div>
+      <div className="musicians-grid">
+        {usersMusicians.length > 0 ? (
+          usersMusicians
+        ) : (
+          <div className="no-musicians">
+            <p>No musicians found. Create your first musician profile!</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
