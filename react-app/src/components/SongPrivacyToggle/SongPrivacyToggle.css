@@ -1,0 +1,50 @@
+.song-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.privacy-btn {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.privacy-toggle-btn {
+  border: 2px solid #5a4718;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #5a4718 0%, #6b5423 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(90, 71, 24, 0.3);
+  margin-top: 0.5rem;
+}
+
+.privacy-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(90, 71, 24, 0.4);
+  background: linear-gradient(135deg, #6b5423 0%, #7d6128 100%);
+}
+
+.privacy-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(90, 71, 24, 0.3);
+}
+
+.privacy-btn.public {
+  background-color: #4caf50;
+  color: white;
+}
+
+.privacy-btn.private {
+  background-color: #f44336;
+  color: white;
+}

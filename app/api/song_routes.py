@@ -76,3 +76,34 @@ def delete_track(id):
     db.session.delete(song)
     db.session.commit()
     return {'id' : id }
+
+
+
+# Toggle privacy for a song
+@song_routes.route('/<int:id>/privacy', methods=['PATCH'])
+@login_required
+def toggle_song_privacy(id):
+    song = Song.query.get(id)
+
+    if not song:
+        return jsonify({"error": "Song not found"}), 404
+
+    # Get the musician who owns this song
+    from app.models import Musician
+    musician = Musician.query.get(song.musician_id)
+    
+    if not musician or musician.user_id != current_user.id:
+        return jsonify({"error": "Musician not found"}), 404
+
+    # Only the musician's owner (user) should be allowed to modify it
+    if musician.user_id != current_user.id:
+        return jsonify({"error": "Unauthorized"}), 403
+
+    data = request.get_json()
+    if "is_private" not in data:
+        return jsonify({"error": "Missing 'is_private' field"}), 400
+
+    song.is_private = data["is_private"]
+    db.session.commit()
+
+    return jsonify(song.to_dict())

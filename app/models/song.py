@@ -10,6 +10,7 @@ class Song(db.Model):
     file_url = db.Column(db.String(500))
     song_img = db.Column(db.String(255))
     musician_id = db.Column(db.Integer, db.ForeignKey('musicians.id'))
+    is_private = db.Column(db.Boolean, default=False, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True),
                            nullable=False, server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True),
@@ -25,6 +26,7 @@ class Song(db.Model):
             'file_url': self.file_url,
             'song_img': self.song_img,
             'musician_id': self.musician_id,
+            'is_private': self.is_private,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }

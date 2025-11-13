@@ -53,3 +53,81 @@
 }
 
 /*#FFF1E6;#9CF6FB,#E1FCFD,#394F8A,#4A5FC1,#E5B9A8,#EAD6CD*/
+
+/* Songs Container Styling */
+.songs-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.songs-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.public-songs-column,
+.private-songs-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.songs-column-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #5a4718;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.private-songs-column .songs-column-title {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border: 2px solid #5a4718;
+}
+
+.single-column {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.no-songs-message {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Responsive Design for Columns */
+@media (max-width: 1024px) {
+    .songs-columns {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .songs-container {
+        padding: 0.5rem;
+    }
+    
+    .songs-column-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+    }
+    
+    .songs-columns {
+        gap: 1rem;
+    }
+}

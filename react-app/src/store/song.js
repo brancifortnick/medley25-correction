@@ -2,6 +2,9 @@ const GET_TRACKS = "song/GET_TRACKS";
 const ADD_TRACK = "song/ADD_TRACK";
 const GET_ONE_TRACK = "song/GET_ONE_TRACK";
 const DELETE_TRACK = "song/DELETE_TRACK";
+const UPDATE_TRACK = "song/UPDATE_TRACK";
+
+
 
 const getAllSongs = (songs) => ({
   type: GET_TRACKS,
@@ -22,6 +25,12 @@ const deleteATrack = (song) => ({
   type: DELETE_TRACK,
   payload: song,
 });
+
+  
+const updateTrack = (song) => ({
+  type: UPDATE_TRACK,
+  payload: song,
+}); 
 
 export const getMusiciansTracks = (id) => async (dispatch) => {
   const response = await fetch(`/api/musicians/${id}/songs`);
@@ -58,16 +67,9 @@ export const createNewSong =
     }
   };
 
-// export const getOneSingleSong = (id) => async (dispatch) => {
-//   const response = await fetch(`/api/musicians/songs/${id}`);
-//   if (response.ok) {
-//     const singleSong = await response.json();
-//     dispatch(grabOneSong(singleSong));
-//     return singleSong;
-//   } else {
-//     console.log("error coming from store => getting single song in SONGSTORE");
-//   }
-// };
+
+
+
 
 export const deleteTrack = (id) => async (dispatch) => {
   const response = await fetch(`/api/songs/${id}`, {
@@ -78,28 +80,61 @@ export const deleteTrack = (id) => async (dispatch) => {
   }
 };
 
+export const toggleSongPrivacy = (songId, newStatus) => async (dispatch) => {
+  console.log("Toggling privacy for song:", songId, "to:", newStatus);
+  
+  const res = await fetch(`/api/songs/${songId}/privacy`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ is_private: newStatus }),
+  });
+
+  if (res.ok) {
+    const updatedSong = await res.json();
+    console.log("Song updated successfully:", updatedSong);
+    dispatch(updateTrack(updatedSong));
+    return updatedSong;
+  } else {
+    const error = await res.json();
+    console.error("Failed to toggle song privacy:", error);
+    return null;
+  }
+};
+
 const initialState = {};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_TRACKS:
       const getState = {};
-      action.payload.forEach((song) => {
-        getState[song.id] = song;
-      });
+      action.payload.forEach((song) => (getState[song.id] = song));
       return getState;
     case ADD_TRACK:
-      const newNew = { ...state };
-      newNew[action.payload.id] = action.payload;
-      return newNew;
+      return { ...state, [action.payload.id]: action.payload };
     case GET_ONE_TRACK:
       return { ...action.payload };
     case DELETE_TRACK:
-      const currentState = { ...state };
-      delete currentState[action.payload]; // maybe this should be action.payload.id-not sure
-      return currentState;
+      const newState = { ...state };
+      delete newState[action.payload];
+      return newState;
+    case UPDATE_TRACK: // 👈 NEW CASE
+      return {
+        ...state,
+        [action.payload.id]: action.payload,
+      };
     default:
       return state;
   }
 }
-//   case UPDATE_TRACK: {}          //! update track reducer not added yet
+
+
+
+
+
+
+
+
+
+
+
+

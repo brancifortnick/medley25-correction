@@ -4,45 +4,66 @@ import DeleteTrack from "../DeleteTrack/DeleteTrack";
 import "./AllSongs.css";
 import { getMusiciansTracks } from "../../store/song";
 import "./AllSongs.css";
-// import { getOneMusician } from "../../store/musician";
-// import { getSongsComments } from "../../store/comment";
-// import CommentDisplay from "../CommentDisplay/CommentDisplay";
-// import { useHistory } from "react-router-dom";
 
+import SongPrivacyToggle from "../SongPrivacyToggle/SongPrivacyToggle";
 
 const AllSongs = ({ musicianId }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.session.user);
   const songs = useSelector((state) => Object.values(state.song)); //array of obj with value of an obj
-  // const musicians = useSelector((state) => Object.values(state.musician));
   const musician = useSelector(state => state.musician);
-  const song = useSelector(state => state.song)//obj with val of obj
-  // console.log( user, "user>>>>",musician, "musicianS tate=>>>>>", song, "songSTATE-NO-OBJ", songs, "songs ----OBJECT")
-  // const comment = useSelector((state) => state.comment);
-  // console.log(comment, "<<<<comment");
-  // const musician = useSelector((state) =>state.musician);
-  // let commentId = comments.map((comment) => {
-  //   return comment.id;
-  // });
+  
+  const isOwner = user && user.id === Number(musician.user_id);
 
   useEffect(() => {
     dispatch(getMusiciansTracks(musicianId));
   }, [dispatch, musicianId]);
+console.log("Privacy status:", songs.map(song => song.is_private));
+  // Separate songs into public and private
+  const publicSongs = songs.filter(song => !song.is_private);
+  const privateSongs = songs.filter(song => song.is_private);
+
+  const renderSong = (song) => (
+    <div key={song.id} className="song-id">
+      <p className="title-p">Title: {song.title} </p>
+      <div id="audio-player">
+        
+        <audio src={song.file_url} controls></audio>
+        {isOwner && (
+          <DeleteTrack musicianId={musicianId} songId={song.id} />
+        )}
+      </div>
+       <SongPrivacyToggle key={song.id} song={song} musicianId={musicianId} />
+    </div>
+  );
 
   return (
-    <div>
-        {songs.map((song) => (
-          <div key={song.id} className="song-id">
-            <p className="title-p">Title: {song.title} </p>
-            <div id="audio-player">
-              <audio src={song.file_url} controls></audio>
-              {user.id === Number(musician.user_id) ? (
-                <DeleteTrack musicianId={musicianId} songId={song.id} />
-              ) : null}
-            </div>
+    <div className="songs-container">
+      {isOwner && privateSongs.length > 0 ? (
+        <div className="songs-columns">
+          <div className="public-songs-column">
+            <h3 className="songs-column-title">Public Songs</h3>
+            {publicSongs.length > 0 ? (
+              publicSongs.map(renderSong)
+            ) : (
+              <p className="no-songs-message">No public songs yet</p>
+            )}
           </div>
-        ))}
+          <div className="private-songs-column">
+            <h3 className="songs-column-title">Private Songs</h3>
+            {privateSongs.map(renderSong)}
+          </div>
+        </div>
+      ) : (
+        <div className="single-column">
+          {publicSongs.length > 0 ? (
+            publicSongs.map(renderSong)
+          ) : (
+            <p className="no-songs-message">No songs yet</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

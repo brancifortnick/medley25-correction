@@ -4,6 +4,7 @@ from flask_login import current_user, login_required
 from app.models import Musician, Song, db
 from app.s3_helpers import (
     get_unique_filename, allowed_file, upload_file_to_s3)
+from sqlalchemy.orm import joinedload
 
 
 musician_routes = Blueprint('musicians', __name__)
@@ -12,14 +13,14 @@ musician_routes = Blueprint('musicians', __name__)
 @musician_routes.route('/', methods=['GET'])
 @login_required
 def get_musicians():
-    musicians = Musician.query.all()
+    musicians = Musician.query.options(joinedload(Musician.songs)).all()
     return {'musicians': [musician.to_dict() for musician in musicians]}
 
 
 @musician_routes.route('/<int:id>', methods=['GET'])
 @login_required
 def get_artist_id(id):
-    musician = Musician.query.get(id)
+    musician = Musician.query.options(joinedload(Musician.songs)).get(id)
     if not musician:
         return {"errors": "Musician not found"}, 404
     return musician.to_dict()
@@ -28,7 +29,17 @@ def get_artist_id(id):
 @musician_routes.route('/<int:id>/songs')
 @login_required
 def musicians_songs(id):
+    musician = Musician.query.get(id)
+    if not musician:
+        return {"errors": "Musician not found"}, 404
+    
+    # Get all songs for this musician
     songs = Song.query.filter(Song.musician_id == id).all()
+    
+    # Filter out private songs if the current user is not the owner
+    if current_user.id != musician.user_id:
+        songs = [song for song in songs if not song.is_private]
+    
     return {'songs': [song.to_dict() for song in songs]}
 
 

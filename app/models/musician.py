@@ -21,6 +21,11 @@ class Musician(db.Model):
     songs = db.relationship('Song', back_populates='musicians')
 
     def to_dict(self):
+        try:
+            song_ids = [song.id for song in self.songs]
+        except:
+            song_ids = []
+        
         return {
             'id': self.id,
             'musician_name': self.musician_name,
@@ -29,6 +34,5 @@ class Musician(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
             'user_id': self.user_id,
-            'songs': [song.id for song in self.songs]
-
+            'songs': song_ids
         }
