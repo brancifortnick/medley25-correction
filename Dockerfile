@@ -5,7 +5,7 @@ COPY react-app/ ./
 
 # You have to set this because it should be set during build time.
 # Build our React App
-ENV REACT_APP_BASE_URL=https://medleystorage.com
+ENV REACT_APP_BASE_URL=https://medley-sesh-12ff9a74e2af.herokuapp.com/
 
 RUN npm install
 RUN npm run build
